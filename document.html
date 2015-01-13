@@ -1,0 +1,83 @@
+<!--inline[./widget/header/header.html]-->
+<!--inline[./widget/nav/nav.html]-->
+<div class="raw bs-docs-header">
+    <div class="container intro">
+        <div class="col-sm-3">
+            <div class="logo"><!--img src="./static/img/logo.png" alt="fis-plus" /-->
+            <i class="fa fa-cogs"></i>
+        </div>
+    </div>
+    <div class="col-sm-9">
+        <div class="intro-word">
+            <h1>FIS-PLUS</h1>
+            <h2>
+            fis-plus 是扩展自FIS的前端集成解决方案。其提供 后端框架、前端框架、自动化工具、辅助开发工具等开发套件
+            </h2>
+        </div>
+    </div>
+</div>
+</div>
+<div class="container bs-docs-container">
+<div class="row">
+    <div class="col-sm-9">
+        <div id="document-main" class="document-main">
+            <!--inline[./doc/_Sidebar.md]-->
+        </div>
+    </div>
+    <div class="col-sm-3 document-nav">
+        <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix-top">
+            <ul class="nav bs-docs-sidenav">
+                <document_links>
+            </ul>
+        </nav>
+    </div>
+</div>
+</div>
+<!--inline[./widget/script/script.html]-->
+<script type="text/javascript" src="/lib/bootstrap/javascripts/bootstrap/scrollspy.js"></script>
+<script type="text/javascript" src="/lib/bootstrap/javascripts/bootstrap/affix.js"></script>
+<script type="text/javascript">
+
+$(function () {
+
+    // Scrollspy
+    var $window = $(window)
+    var $body   = $(document.body)
+    var $element = $('#document-main');
+
+    $body.scrollspy({
+      target: '.bs-docs-sidebar'
+    })
+
+    $window.on('load', function () {
+      $body.scrollspy('refresh')
+    })
+
+    // Kill links
+    $('.bs-docs-container [href=#]').click(function (e) {
+      e.preventDefault()
+    })
+
+    // Sidenav affixing
+    setTimeout(function () {
+      var $sideBar = $('.bs-docs-sidebar')
+
+      $sideBar.affix({
+        offset: {
+          top: function () {
+            var offsetTop      = $sideBar.offset().top
+            var sideBarMargin  = parseInt($sideBar.children(0).css('margin-top'), 10)
+            var navOuterHeight = $('.bs-docs-nav').height()
+
+            return (this.top = offsetTop - navOuterHeight - sideBarMargin)
+          },
+          bottom: function () {
+            return (this.bottom = $('.bs-docs-footer').outerHeight(true))
+          }
+        }
+      })
+    }, 100)
+});
+
+</script>
+<!--inline[./widget/footer/footer.html]-->
