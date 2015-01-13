@@ -5,12 +5,12 @@
 - release
 
     ```bash
-    make
+    $ make
     ```
 
 - debug
     
     ```bash
-    git clone https://github.com/fex-team/fis-plus.wiki.git doc
-    make debug
+    $ git clone https://github.com/fex-team/fis-plus.wiki.git doc
+    $ make debug
     ```
