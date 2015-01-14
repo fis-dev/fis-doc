@@ -17,7 +17,7 @@ fi
 
 isDev=
 
-if [ "$2" == "dev" ]; then
+if [ "$2" = "dev" ]; then
     isDev="dev"
 else
     export PATH=$ROOT/node_modules/.bin:$PATH
