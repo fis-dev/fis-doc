@@ -105,7 +105,7 @@ function (content, file, conf) {
                     escapedText +
                      '" class="anchor" href="#' +
                      escapedText +
-                     '"><span class="header-link"></span></a>' +
+                     '"><span class="doc-link"></span></a>' +
                       text + '</h' + level + '>';
     };
 
