@@ -10,7 +10,7 @@ install:
 - npm install marked
 - git clone https://github.com/fex-team/fis.git ./node_modules/fis
 - cd ./node_modules/fis && npm install || cd -
-- git clone git@github.com:fouber/fis-parser-sass.git ./node_modules/fis-parser-sass
+- git clone https://github.com/fouber/fis-parser-sass.git ./node_modules/fis-parser-sass
 - cd ./node_modules/fis-parser-sass && npm install || cd -
 
 after_success:
