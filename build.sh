@@ -16,12 +16,23 @@ if [ "$2" != "dev" ]; then
 fi
 
 isDev=
+
 if [ "$2" == "dev" ]; then
     isDev="dev"
+else
+    export PATH=$ROOT/node_modules/.bin:$PATH
+    export NODE_PATH=$ROOT/node_modules
 fi
 
 gitpush_gh () {
     framework=$1
+    if [ "$isDev" = "" ]; then
+        #AU
+        git config --global user.email "fansekey@gmail.com"
+        git config --global user.name "xiangshouding"
+        git config credential.helper "store --file=.git/credential"
+        echo "https://${GH_TOKEN}:@github.com" > .git/credential
+    fi
     git clone https://github.com/fex-team/${framework}.git
     cd "$framework"
     git checkout gh-pages
