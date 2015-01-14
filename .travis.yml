@@ -8,7 +8,8 @@ env:
   - secure: a9kINH5eZ/xVQe8gQwy4dOGnVTkEBe9Tkzx28/mHrFTFGU5hyzfKrMRmXLPTiyuvSHcNy1t3IOfldhzT0luBb68fZdxUtQ4jR6wFLvpiG20cX8nUV6wX7Zmk8Ozt81ZRvlYESSvWdqM6PYWU+t6TOVtt2cQUUn+6F/JWMTPWAK0=
 install:
 - npm install marked
-- npm install fis
+- git clone https://github.com/fex-team/fis.git ./node_modules/fis
+- cd ./node_modules/fis && npm install || cd -
 - git clone git@github.com:fouber/fis-parser-sass.git ./node_modules/fis-parser-sass
 - cd ./node_modules/fis-parser-sass && npm install || cd -
 
