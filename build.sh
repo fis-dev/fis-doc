@@ -40,7 +40,7 @@ gitpush_gh () {
     
     git add -A -f
     git commit -m 'auto commit' -a
-    git push -q https://$GH_TOKEN@github.com/fex-team/${framework}.git gh-pages
+    git push -q https://xiangshouding:$GH_TOKEN@github.com/fex-team/${framework}.git gh-pages
 
     cd ..
     rm -rf "$framework"
