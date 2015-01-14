@@ -1,5 +1,12 @@
 # fis-doc
 
+## pre
+
+```bash
+$ npm install
+$ npm install -g fis-parser-sass
+```
+
 ## use
 
 - release
