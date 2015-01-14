@@ -26,20 +26,20 @@ fi
 
 gitpush_gh () {
     framework=$1
-    if [ "$isDev" = "" ]; then
-        #AU
-        git config --global user.email "fansekey@gmail.com"
-        git config --global user.name "xiangshouding"
-        git config credential.helper "store --file=.git/credential"
-        echo "https://${GH_TOKEN}:@github.com" > .git/credential
-    fi
     git clone https://github.com/fex-team/${framework}.git
     cd "$framework"
     git checkout gh-pages
     rm -rf * #clear
     cp -rf ../output/* .
     git add *
+    
     git commit -m 'update auto'
+    
+    git config --global user.email "fansekey@gmail.com"
+    git config --global user.name "xiangshouding"
+    git config credential.helper "store --file=.git/credential"
+    echo "https://${GH_TOKEN}:@github.com" > .git/credential
+    
     git push origin gh-pages
     cd ..
     rm -rf "$framework"
