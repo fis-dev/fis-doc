@@ -33,16 +33,15 @@ gitpush_gh () {
     git config --global user.email "fansekey@gmail.com"
     git config --global user.name "xiangshouding"
     git config credential.helper "store --file=.git/credential"
+    echo "https://${GH_TOKEN}:@github.com" > .git/credential
 
     rm -rf * #clear
     cp -rf ../output/* .
-    git add *
     
-    git commit -m 'update auto' -a
-    
-    echo "https://${GH_TOKEN}:@github.com" > .git/credential
-    
+    git add -A -f
+    git commit -m 'auto commit' -a
     git push origin gh-pages
+
     cd ..
     rm -rf "$framework"
 }
