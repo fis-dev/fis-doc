@@ -14,3 +14,6 @@ WIKI dev-js-widget.md https://github.com/fex-team/fis-plus/wiki/dev-js-widget 14
 WIKI dev-page.md https://github.com/fex-team/fis-plus/wiki/dev-page 1421300003779
 WIKI dev-static.md https://github.com/fex-team/fis-plus/wiki/dev-static 1421300003779
 WIKI test-rewrite.md https://github.com/fex-team/fis-plus/wiki/test-rewrite 1421300153183
+WIKI dev-command.md https://github.com/fex-team/fis-plus/wiki/dev-command 1421301324663
+WIKI test-rewrite.md https://github.com/fex-team/fis-plus/wiki/test-rewrite 1421301324663
+WIKI 快速入门.md https://github.com/fex-team/fis-plus/wiki/%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8 1421301324663
