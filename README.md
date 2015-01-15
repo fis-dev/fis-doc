@@ -4,7 +4,8 @@
 
 ```bash
 $ npm install
-$ npm install -g fis-parser-sass
+$ export PATH=$(pwd)/node_modules/.bin:$PATH
+$ export NODE_PATH=$(pwd)/node_modules
 ```
 
 ## use
