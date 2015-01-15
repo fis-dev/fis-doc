@@ -108,7 +108,7 @@ fis.config.set('modules.parser.md', [function(content, file, conf) {
             }
 
             var out = '<a href="' + href + '"';
-            
+
             if (href.indexOf('#') != -1 && href.indexOf('http') != 0) {
                 out = '<a href="' + href.substr(href.indexOf('#')) + '"';
             }
@@ -122,6 +122,14 @@ fis.config.set('modules.parser.md', [function(content, file, conf) {
 
         marked.setOptions({
             renderer: renderer,
+            highlight: function(code, lang, callback) {
+                require('pygmentize-bundled')({
+                    lang: lang,
+                    format: 'html'
+                }, code, function(err, result) {
+                    callback(err, result.toString());
+                });
+            },
             gfm: true,
             tables: true,
             breaks: false,
