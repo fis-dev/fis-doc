@@ -13,3 +13,4 @@ WIKI dev-deploy.md https://github.com/fex-team/fis-plus/wiki/dev-deploy 14213000
 WIKI dev-js-widget.md https://github.com/fex-team/fis-plus/wiki/dev-js-widget 1421300003779
 WIKI dev-page.md https://github.com/fex-team/fis-plus/wiki/dev-page 1421300003779
 WIKI dev-static.md https://github.com/fex-team/fis-plus/wiki/dev-static 1421300003779
+WIKI test-rewrite.md https://github.com/fex-team/fis-plus/wiki/test-rewrite 1421300153183
