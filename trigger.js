@@ -42,7 +42,7 @@ function updateFisDocRepos(obj) {
 
     github.authenticate({
         type: 'token',
-        token: '<GH_TOKEM>'
+        token: '<GH_TOKEN>'
     });
     
     var msg = {
@@ -60,7 +60,7 @@ function updateFisDocRepos(obj) {
         var content = (new Buffer(data.content, data.encoding)).toString('utf-8');
 
         obj['pages'].forEach(function (page) {
-            content = content + 'WIKI ' + page.page_name + '.md ' + page.html_url + (new Date).getTime() + '\n';
+            content = content + 'WIKI ' + page.page_name + '.md ' + page.html_url + ' ' + (new Date).getTime() + '\n';
         });
 
         var updateData = {
