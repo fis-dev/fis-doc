@@ -5,3 +5,5 @@ WIKI test-rewrite.md https://github.com/fex-team/fis-plus/wiki/test-rewrite14212
 WIKI test-rewrite.md https://github.com/fex-team/fis-plus/wiki/test-rewrite1421285442568
 WIKI test-rewrite.md https://github.com/fex-team/fis-plus/wiki/test-rewrite1421285509537
 WIKI Home.md https://github.com/fex-team/fis-plus/wiki/Home 1421285701503
+WIKI dev-css-widget.md https://github.com/fex-team/fis-plus/wiki/dev-css-widget 1421296278456
+WIKI dev-static.md https://github.com/fex-team/fis-plus/wiki/dev-static 1421296278456
