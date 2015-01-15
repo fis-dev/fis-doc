@@ -20,7 +20,10 @@ fis.config.set('roadmap.ext.scss', 'css'); //scss文件编译后产出为css文�
 fis.config.set('framework', '{%FRAMEWORK%}');
 fis.config.set('roadmap.domain', '{%DOMAIN%}');
 fis.config.set('macro', {
-    'namespace': '{%FRAMEWORK%}'
+    'namespace': '{%FRAMEWORK%}',
+    'class-warning': 'bs-callout bs-callout-warning',
+    'class-danger': 'bs-callout bs-callout-danger',
+    'class-info': 'bs-callout bs-callout-info'
 });
 
 fis.config.set('roadmap.path', [{
