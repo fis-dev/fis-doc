@@ -53,8 +53,13 @@ for framework in $FRAMEWORKS; do
     if [ "$isDev" = "" ]; then
         rm -rf $ROOT/doc
     fi
-    
-    cat $FIS_CONFIG_TEMPLATE | sed s/{%FRAMEWORK%}/${framework}/g > fis-conf-${framework}.js
+
+    subpath=$framework 
+    if [ "$isDev" != "" ]; then
+        subpath="."
+    fi
+
+    cat $FIS_CONFIG_TEMPLATE | sed s/{%FRAMEWORK%}/${subpath}/g > fis-conf-${framework}.js
     cat fis-conf-${framework}.js | sed s/{%DOMAIN%}/${domain}/g > fis-conf-${framework}_tmp.js
     mv fis-conf-${framework}_tmp.js fis-conf-${framework}.js
     
