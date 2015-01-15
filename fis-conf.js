@@ -170,7 +170,7 @@ function getLinksHtml(links) {
     return ret;
 }
 
-fis.config.set('modules.postpackager', function(ret, settings, conf, opt) {
+fis.config.set('modules.postpackager', [function(ret, settings, conf, opt) {
     fis.util.map(ret.src, function(subpath, file) {
         if (file.isDocumentPage) {
             var useLinks = [];
@@ -194,4 +194,9 @@ fis.config.set('modules.postpackager', function(ret, settings, conf, opt) {
             file.setContent(content);
         }
     });
-});
+}, 
+'simple' //pack
+]);
+
+fis.config.set('settings.postpackager.simple.autoCombine', true);
+fis.config.set('settings.postpackager.simple.autoReflow', true);

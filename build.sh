@@ -64,10 +64,11 @@ for framework in $FRAMEWORKS; do
     mv fis-conf-${framework}_tmp.js fis-conf-${framework}.js
     
     if [ "$isDev" = "" ]; then
+        echo 'test'
         git clone https://github.com/fex-team/${framework}.wiki.git $ROOT/doc
     fi
     
-    fis release -cmDd $output -f fis-conf-${framework}.js
+    fis release -cmpDd $output -f fis-conf-${framework}.js
     if [ "$?" = "0" -a -d "./output" ]; then
         gitpush_gh "$framework"
         rm -rf fis-conf-${framework}.js
