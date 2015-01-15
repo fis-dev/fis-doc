@@ -8,7 +8,12 @@ var url = require('url');
 fis.config.set('project.exclude',
     [
         '**/_*.scss', 
-        '*/node_modules/**'
+        '*/node_modules/**',
+        'Makefile',
+        'build.sh',
+        'README.md',
+        'trigger.js',
+        'changelog/**'
     ]
 );
 fis.config.set('modules.parser.scss', 'sass');  //启用fis-parser-sass插件
