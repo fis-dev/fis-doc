@@ -7,3 +7,10 @@ WIKI test-rewrite.md https://github.com/fex-team/fis-plus/wiki/test-rewrite14212
 WIKI Home.md https://github.com/fex-team/fis-plus/wiki/Home 1421285701503
 WIKI dev-css-widget.md https://github.com/fex-team/fis-plus/wiki/dev-css-widget 1421296278456
 WIKI dev-static.md https://github.com/fex-team/fis-plus/wiki/dev-static 1421296278456
+WIKI _Sidebar.md https://github.com/fex-team/fis-plus/wiki/_Sidebar 1421300003778
+WIKI dev-command.md https://github.com/fex-team/fis-plus/wiki/dev-command 1421300003779
+WIKI dev-deploy.md https://github.com/fex-team/fis-plus/wiki/dev-deploy 1421300003779
+WIKI dev-js-widget.md https://github.com/fex-team/fis-plus/wiki/dev-js-widget 1421300003779
+WIKI dev-page.md https://github.com/fex-team/fis-plus/wiki/dev-page 1421300003779
+WIKI dev-static.md https://github.com/fex-team/fis-plus/wiki/dev-static 1421300003779
+WIKI test-rewrite.md https://github.com/fex-team/fis-plus/wiki/test-rewrite 1421300153183
