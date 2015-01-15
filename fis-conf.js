@@ -122,14 +122,10 @@ fis.config.set('modules.parser.md', [function(content, file, conf) {
 
         marked.setOptions({
             renderer: renderer,
-            highlight: function(code, lang, callback) {
-                require('pygmentize-bundled')({
-                    lang: lang,
-                    format: 'html'
-                }, code, function(err, result) {
-                    callback(err, result.toString());
-                });
+            highlight: function(code) {
+                return require('highlight.js').highlightAuto(code).value;
             },
+            langPrefix: 'hljs lang-',
             gfm: true,
             tables: true,
             breaks: false,
