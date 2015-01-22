@@ -27,3 +27,4 @@ WIKI 快速入门.md https://github.com/fex-team/fis-plus/wiki/%E5%BF%AB%E9%80%9
 WIKI _Sidebar.md https://github.com/fex-team/fis-plus/wiki/_Sidebar 1421727196840
 WIKI _Sidebar.md https://github.com/fex-team/fis-plus/wiki/_Sidebar 1421727475781
 WIKI 快速入门.md https://github.com/fex-team/fis-plus/wiki/%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8 1421727645472
+WIKI Home.md https://github.com/fex-team/fis-plus/wiki/Home 1421888437215
