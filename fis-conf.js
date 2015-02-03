@@ -13,7 +13,7 @@ fis.config.set('project.exclude', [
     'README.md',
     'trigger.js',
     'changelog/**',
-    '/index-{%FILTER%}.html',
+    '/index-{%IGNORE%}.html',
     '/document-{%IGNORE%}.html',
     /^\/static\/.*-{%IGNORE%}\.\d\w+\d$/,
     '/static/img-{%IGNORE%}'
