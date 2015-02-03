@@ -1,0 +1,67 @@
+<!--inline[./widget/header/header-yog2.html]-->
+
+    <!--inline[./widget/nav/nav-yog2.html]-->
+
+    <div class="container bs-docs-container">
+        <div class="row">
+            <div class="col-sm-9">
+                <div id="document-main" class="document-main">
+                    <!--inline[./doc/_Sidebar.md]-->
+                </div>
+            </div>
+            <div class="col-sm-3 document-nav">
+                <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix-top">
+                    <ul class="nav bs-docs-sidenav">
+                        <document_links>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <!--inline[./widget/script/script.html]-->
+
+    <script type="text/javascript">
+        $(function () {
+
+            // Scrollspy
+            var $window = $(window)
+            var $body   = $(document.body)
+            var $element = $('#document-main');
+
+            $body.scrollspy({
+              target: '.bs-docs-sidebar'
+            })
+
+            $window.on('load', function () {
+              $body.scrollspy('refresh')
+            })
+
+            // Kill links
+            $('.bs-docs-container [href=#]').click(function (e) {
+              e.preventDefault()
+            })
+
+            // Sidenav affixing
+            setTimeout(function () {
+              var $sideBar = $('.bs-docs-sidebar')
+
+              $sideBar.affix({
+                offset: {
+                  top: function () {
+                    var offsetTop      = $sideBar.offset().top
+                    var sideBarMargin  = parseInt($sideBar.children(0).css('margin-top'), 10)
+                    var navOuterHeight = $('.bs-docs-nav').height()
+
+                    return (this.top = offsetTop - navOuterHeight - sideBarMargin)
+                  },
+                  bottom: function () {
+                    return (this.bottom = $('.bs-docs-footer').outerHeight(true))
+                  }
+                }
+              })
+            }, 100)
+        });
+    </script>
+
+<!--inline[./widget/footer/footer.html]-->

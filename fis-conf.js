@@ -36,8 +36,23 @@ fis.config.set('roadmap.path', [{
 }, {
     reg: '**.md'
 }, {
-    reg: '/document.html',
+    //[leeethe]: Add postfix
+    reg: '/document-${framework}.html',
+    //[leeethe]: Remove postfix on release
+    release: '/document.html',
     isDocumentPage: true
+}, {
+    //[leeethe]: Remove postfix of widgts on release
+    reg: /(.*)-${framework}\.html$/,
+    release: '$1.html'
+}, {
+    //[leeethe]: Remove postfix of /static/*(.css|.scss) files on release
+    reg: /(.*)-${framework}\.(css|scss)$/,
+    release: '$1.css'
+}, {
+    //[leeethe]: Remove postfix of the /static/img-${framework}/ on release
+    reg: /(.*)-${framework}\/(.*)$/,
+    release: '$1/$2'
 }, {
     reg: '**.html'
 }, {
