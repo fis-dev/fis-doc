@@ -33,3 +33,4 @@ WIKI test-rewrite.md https://github.com/fex-team/fis-plus/wiki/test-rewrite 1422
 WIKI test-rewrite.md https://github.com/fex-team/fis-plus/wiki/test-rewrite 1422922909182
 WIKI test-rewrite.md https://github.com/fex-team/fis-plus/wiki/test-rewrite 1422922988750
 WIKI test-rewrite.md https://github.com/fex-team/fis-plus/wiki/test-rewrite 1422923028067
+WIKI 快速入门.md https://github.com/fex-team/fis-plus/wiki/%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8 1422947081592
