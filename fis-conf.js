@@ -12,7 +12,11 @@ fis.config.set('project.exclude', [
     'build.sh',
     'README.md',
     'trigger.js',
-    'changelog/**'
+    'changelog/**',
+    '/index-{%FILTER%}.html',
+    '/document-{%IGNORE%}.html',
+    /^\/static\/.*-{%IGNORE%}\.\d\w+\d$/,
+    '/static/img-{%IGNORE%}'
 ]);
 
 fis.config.set('modules.parser.scss', 'sass'); //启用fis-parser-sass插件
