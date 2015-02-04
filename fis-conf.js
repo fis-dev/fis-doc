@@ -16,6 +16,8 @@ fis.config.set('project.exclude', [
     '/index-{%IGNORE%}.html',
     '/document-{%IGNORE%}.html',
     /^\/static\/.*-{%IGNORE%}\.\d\w+\d$/,
+    // 这边是不是就不需要替换成下面的？按我的理解，用sed命令处理的话，应当是不用变的——总之先注释在这儿
+    // new RegExp('^\\/static\\/.*-' + {%IGNORE%} + '\\.\\d\\w+\\d$'),
     '/static/img-{%IGNORE%}'
 ]);
 
@@ -40,22 +42,17 @@ fis.config.set('roadmap.path', [{
 }, {
     reg: '**.md'
 }, {
-    //[leeethe]: Add postfix
     reg: '/document-${framework}.html',
-    //[leeethe]: Remove postfix on release
     release: '/document.html',
     isDocumentPage: true
 }, {
-    //[leeethe]: Remove postfix of widgts on release
-    reg: /(.*)-${framework}\.html$/,
+    reg: new RegExp('(.*)-' + ${framework} + '\\.html$'),
     release: '$1.html'
 }, {
-    //[leeethe]: Remove postfix of /static/*(.css|.scss) files on release
-    reg: /(.*)-${framework}\.(css|scss)$/,
+    reg: new RegExp('(.*)-' + ${framework} + '\\.(css|scss)$'),
     release: '$1.css'
 }, {
-    //[leeethe]: Remove postfix of the /static/img-${framework}/ on release
-    reg: /^(.*)-${framework}\/(.*)$/,
+    reg: new RegExp('(\\d\\w+\\d)-' + ${framework + '\\/(.*)$'),
     release: '$1/$2'
 }, {
     reg: '**.html'
