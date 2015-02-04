@@ -46,13 +46,13 @@ fis.config.set('roadmap.path', [{
     release: '/document.html',
     isDocumentPage: true
 }, {
-    reg: new RegExp('(.*)-' + ${framework} + '\\.html$'),
+    reg: new RegExp('(.*)-' + fis.config.get('framework') + '\\.html$'),
     release: '$1.html'
 }, {
-    reg: new RegExp('(.*)-' + ${framework} + '\\.(css|scss)$'),
+    reg: new RegExp('(.*)-' + fis.config.get('framework') + '\\.(css|scss)$'),
     release: '$1.css'
 }, {
-    reg: new RegExp('(\\d\\w+\\d)-' + ${framework + '\\/(.*)$'),
+    reg: new RegExp('(\\d\\w+\\d)-' + fis.config.get('framework') + '\\/(.*)$'),
     release: '$1/$2'
 }, {
     reg: '**.html'
