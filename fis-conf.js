@@ -12,13 +12,7 @@ fis.config.set('project.exclude', [
     'build.sh',
     'README.md',
     'trigger.js',
-    'changelog/**',
-    '/index-{%IGNORE%}.html',
-    '/document-{%IGNORE%}.html',
-    /^\/static\/.*-{%IGNORE%}\.\d\w+\d$/,
-    // 这边是不是就不需要替换成下面的？按我的理解，用sed命令处理的话，应当是不用变的——总之先注释在这儿
-    // new RegExp('^\\/static\\/.*-' + {%IGNORE%} + '\\.\\d\\w+\\d$'),
-    '/static/img-{%IGNORE%}'
+    'changelog/**'
 ]);
 
 fis.config.set('modules.parser.scss', 'sass'); //启用fis-parser-sass插件
@@ -42,23 +36,25 @@ fis.config.set('roadmap.path', [{
 }, {
     reg: '**.md'
 }, {
-    reg: '/document-${framework}.html',
+    reg: '/pages/${framework}/document.html',
     release: '/document.html',
     isDocumentPage: true
 }, {
-    reg: new RegExp('(.*)-' + fis.config.get('framework') + '\\.html$'),
-    release: '$1.html'
+    // pages下的所有结构移至根目录
+    reg: new RegExp('^\\/pages\\/' + fis.config.get('framework') + '\\/(.*\\.html)$'),
+    release: '/$1'
 }, {
-    reg: new RegExp('(.*)-' + fis.config.get('framework') + '\\.(css|scss)$'),
-    release: '$1.css'
+    // 所有pages/,static/,widget/下的结构都相同，为./[repo-name]/[dirs/files]
+    reg: new RegExp('^\\/(\\d\\w+\\d)\\/' + fis.config.get('framework') + '\\/(.*)$'),
+    release: '/$1/$2'
 }, {
-    reg: new RegExp('(\\d\\w+\\d)-' + fis.config.get('framework') + '\\/(.*)$'),
-    release: '$1/$2'
+    reg: 'lib/**'
 }, {
-    reg: '**.html'
+    reg: 'map.json'
 }, {
     reg: '**',
-    release: '/static/${framework}/$&'
+    // release: '/static/${framework}/$&'
+    release: '/static/$&'
 }]);
 
 fis.config.set('settings.parser.sass', {
