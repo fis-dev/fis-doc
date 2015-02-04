@@ -12,7 +12,11 @@ fis.config.set('project.exclude', [
     'build.sh',
     'README.md',
     'trigger.js',
-    'changelog/**'
+    'changelog/**',
+    '/index-{%IGNORE%}.html',
+    '/document-{%IGNORE%}.html',
+    /^\/static\/.*-{%IGNORE%}\.\d\w+\d$/,
+    '/static/img-{%IGNORE%}'
 ]);
 
 fis.config.set('modules.parser.scss', 'sass'); //启用fis-parser-sass插件
@@ -51,7 +55,7 @@ fis.config.set('roadmap.path', [{
     release: '$1.css'
 }, {
     //[leeethe]: Remove postfix of the /static/img-${framework}/ on release
-    reg: /(.*)-${framework}\/(.*)$/,
+    reg: /^(.*)-${framework}\/(.*)$/,
     release: '$1/$2'
 }, {
     reg: '**.html'
