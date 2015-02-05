@@ -11,17 +11,21 @@ else
 fi
 
 domain=
+
 if [ "$2" != "dev" ]; then
     domain="\/fis-plus"
 fi
 
+
 isDev=
+
 if [ "$2" = "dev" ]; then
     isDev="dev"
 else
     export PATH=$ROOT/node_modules/.bin:$PATH
     export NODE_PATH=$ROOT/node_modules
 fi
+
 
 gitpush_gh () {
     framework=$1
@@ -68,7 +72,7 @@ for framework in $FRAMEWORKS; do
     
     if [ "$isDev" = "" ]; then
         echo 'test'
-        git clone https://github.com/fex-team/${framework}.wiki.git $ROOT/doc/
+        git clone https://github.com/fex-team/${framework}.wiki.git $ROOT/doc
     fi
     
     fis release -cmpDd $output -f fis-conf-${framework}.js
