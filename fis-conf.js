@@ -45,7 +45,7 @@ fis.config.set('roadmap.path', [{
     release: '/$1'
 }, {
     // 所有pages/,static/,widget/下的结构都相同，为./[repo-name]/[dirs/files]
-    reg: new RegExp('^\\/(\\d\\w+\\d)\\/' + fis.config.get('framework') + '\\/(.*)$'),
+    reg: new RegExp('^\\/(.*)\\/' + fis.config.get('framework') + '\\/(.*)$'),
     release: '/$1/$2'
 }, {
     reg: 'lib/**'
@@ -54,7 +54,7 @@ fis.config.set('roadmap.path', [{
 }, {
     reg: '**',
     // release: '/static/${framework}/$&'
-    release: '/static/$&'
+    release: '/obsolete/$&'
 }]);
 
 fis.config.set('settings.parser.sass', {

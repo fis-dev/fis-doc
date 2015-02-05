@@ -2,7 +2,7 @@
 
 ROOT=$(pwd)
 FIS_CONFIG_TEMPLATE="$ROOT/fis-conf.js"
-FRAMEWORKS=(fis-plus)
+FRAMEWORKS=(fis-plus yog2)
 
 if [ "$1" = "" ];then
     output="output"
@@ -16,7 +16,6 @@ if [ "$2" != "dev" ]; then
 fi
 
 isDev=
-
 if [ "$2" = "dev" ]; then
     isDev="dev"
 else
@@ -38,7 +37,10 @@ gitpush_gh () {
 
     rm -rf * #clear
     cp -rf ../output/* .
-    
+
+    # 删除“集中营”里的无效文件
+    rm -rf ./output/obsolete
+
     git add -A -f
     git commit -m 'auto commit' -a
     git push origin gh-pages
@@ -51,7 +53,7 @@ for framework in $FRAMEWORKS; do
     echo $framework
     
     if [ "$isDev" = "" ]; then
-        rm -rf $ROOT/doc
+        rm -rf $ROOT/doc/framework
     fi
 
     subpath=$framework 
@@ -59,19 +61,23 @@ for framework in $FRAMEWORKS; do
         subpath="."
     fi
 
+    # concat files
     cat $FIS_CONFIG_TEMPLATE | sed s/{%FRAMEWORK%}/${subpath}/g > fis-conf-${framework}.js
     cat fis-conf-${framework}.js | sed s/{%DOMAIN%}/${domain}/g > fis-conf-${framework}_tmp.js
     mv fis-conf-${framework}_tmp.js fis-conf-${framework}.js
     
     if [ "$isDev" = "" ]; then
         echo 'test'
-        git clone https://github.com/fex-team/${framework}.wiki.git $ROOT/doc
+        git clone https://github.com/fex-team/${framework}.wiki.git $ROOT/doc/
     fi
     
     fis release -cmpDd $output -f fis-conf-${framework}.js
+    
     if [ "$?" = "0" -a -d "./output" ]; then
         gitpush_gh "$framework"
         rm -rf fis-conf-${framework}.js
         rm -rf output
+        # 删除该项目的doc，以便下一个项目载入新的doc
+        rm -rf doc
     fi
 done
