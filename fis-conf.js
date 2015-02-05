@@ -53,8 +53,8 @@ fis.config.set('roadmap.path', [{
     reg: 'map.json'
 }, {
     reg: '**',
-    // release: '/static/${framework}/$&'
-    release: '/obsolete/$&'
+    release: '/static/${framework}/$&'
+    // release: '/static/$&'
 }]);
 
 fis.config.set('settings.parser.sass', {
