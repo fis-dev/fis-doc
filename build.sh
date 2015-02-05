@@ -53,7 +53,7 @@ for framework in $FRAMEWORKS; do
     echo $framework
     
     if [ "$isDev" = "" ]; then
-        rm -rf $ROOT/doc/framework
+        rm -rf $ROOT/doc
     fi
 
     subpath=$framework 
@@ -78,6 +78,6 @@ for framework in $FRAMEWORKS; do
         rm -rf fis-conf-${framework}.js
         rm -rf output
         # 删除该项目的doc，以便下一个项目载入新的doc
-        rm -rf doc
+        # rm -rf doc 此处作废
     fi
 done
