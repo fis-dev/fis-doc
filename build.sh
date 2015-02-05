@@ -61,9 +61,11 @@ for framework in "${FRAMEWORKS[@]}"; do
         rm -rf $ROOT/doc
     fi
 
-    subpath=$framework 
+    subpath=$framework
+    domain="\/${framework}"
     if [ "$isDev" != "" ]; then
         subpath="."
+        domain=
     fi
 
     # concat files
