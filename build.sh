@@ -2,7 +2,10 @@
 
 ROOT=$(pwd)
 FIS_CONFIG_TEMPLATE="$ROOT/fis-conf.js"
-FRAMEWORKS=(fis-plus yog2)
+FRAMEWORKS=(
+    fis-plus
+    yog2
+)
 
 if [ "$1" = "" ];then
     output="output"
@@ -51,7 +54,7 @@ gitpush_gh () {
     rm -rf "$framework"
 }
 
-for framework in $FRAMEWORKS; do
+for framework in "${FRAMEWORKS[@]}"; do
     echo $framework
     
     if [ "$isDev" = "" ]; then
