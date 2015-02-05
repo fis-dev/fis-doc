@@ -42,8 +42,6 @@ gitpush_gh () {
     rm -rf * #clear
     cp -rf ../output/* .
 
-    # 删除“集中营”里的无效文件
-    rm -rf ./output/obsolete
 
     git add -A -f
     git commit -m 'auto commit' -a
