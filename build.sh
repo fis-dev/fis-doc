@@ -2,7 +2,7 @@
 
 ROOT=$(pwd)
 FIS_CONFIG_TEMPLATE="$ROOT/fis-conf.js"
-FRAMEWORKS=(fis-plus)
+FRAMEWORKS=(fis-plus yog2)
 
 if [ "$1" = "" ];then
     output="output"
@@ -11,9 +11,11 @@ else
 fi
 
 domain=
+
 if [ "$2" != "dev" ]; then
     domain="\/fis-plus"
 fi
+
 
 isDev=
 
@@ -23,6 +25,7 @@ else
     export PATH=$ROOT/node_modules/.bin:$PATH
     export NODE_PATH=$ROOT/node_modules
 fi
+
 
 gitpush_gh () {
     framework=$1
@@ -38,7 +41,8 @@ gitpush_gh () {
 
     rm -rf * #clear
     cp -rf ../output/* .
-    
+
+
     git add -A -f
     git commit -m 'auto commit' -a
     git push origin gh-pages
@@ -59,6 +63,7 @@ for framework in $FRAMEWORKS; do
         subpath="."
     fi
 
+    # concat files
     cat $FIS_CONFIG_TEMPLATE | sed s/{%FRAMEWORK%}/${subpath}/g > fis-conf-${framework}.js
     cat fis-conf-${framework}.js | sed s/{%DOMAIN%}/${domain}/g > fis-conf-${framework}_tmp.js
     mv fis-conf-${framework}_tmp.js fis-conf-${framework}.js
@@ -69,9 +74,12 @@ for framework in $FRAMEWORKS; do
     fi
     
     fis release -cmpDd $output -f fis-conf-${framework}.js
+    
     if [ "$?" = "0" -a -d "./output" ]; then
         gitpush_gh "$framework"
         rm -rf fis-conf-${framework}.js
         rm -rf output
+        # 删除该项目的doc，以便下一个项目载入新的doc
+        # rm -rf doc 此处作废
     fi
 done

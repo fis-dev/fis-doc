@@ -36,13 +36,25 @@ fis.config.set('roadmap.path', [{
 }, {
     reg: '**.md'
 }, {
-    reg: '/document.html',
+    reg: '/pages/${framework}/document.html',
+    release: '/document.html',
     isDocumentPage: true
 }, {
-    reg: '**.html'
+    // pages下的所有结构移至根目录
+    reg: new RegExp('^\\/pages\\/' + fis.config.get('framework') + '\\/(.*\\.html)$'),
+    release: '/$1'
+}, {
+    // 所有pages/,static/,widget/下的结构都相同，为./[repo-name]/[dirs/files]
+    reg: new RegExp('^\\/(.*)\\/' + fis.config.get('framework') + '\\/(.*)$'),
+    release: '/$1/$2'
+}, {
+    reg: 'lib/**'
+}, {
+    reg: 'map.json'
 }, {
     reg: '**',
-    release: '/static/${framework}/$&'
+    // release: '/static/${framework}/$&'
+    release: '/static/$&'
 }]);
 
 fis.config.set('settings.parser.sass', {
