@@ -129,7 +129,7 @@ fis.config.set('modules.parser.md', [function (content, file, conf) {
                     gNavRef.push(refFile.toString());
                     navs.push(info.pathname);
                 }
-                return;
+                href='#' + encodeURI(text);
             }
 
             var out = '<a href="' + href + '"';
@@ -203,7 +203,7 @@ fis.config.set('modules.postpackager', [function(ret, settings, conf, opt) {
                     useLinks = useLinks.concat(links);
                 }
             });
-            console.log('test');
+            console.log(gLinkContent);
             file.setContent(file.getContent().replace('<document_links>', gLinkContent));//getLinksHtml(useLinks)));
             gLinks = []; //reset
         }
