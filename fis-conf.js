@@ -102,9 +102,9 @@ fis.config.set('modules.parser.md', [function (content, file, conf) {
 
         renderer.heading = function(text, level) {
             var link = {};
-            link.text = encodeURI(text);
+            link.text = text;
             link.level = level;
-            var escapedText = link.text;
+            var escapedText = encodeURI(text);
 
             links.push(link);
 
@@ -182,9 +182,9 @@ function getLinksHtml(links) {
                 ret += '</ul></li>';
             }
             flag = true;
-            ret += '<li><a href="#' + link.text + '">' + link.text + '</a><ul class="nav">';
+            ret += '<li><a href="#' + encodeURI(link.text) + '">' + link.text + '</a><ul class="nav">';
         } else if (link.level == 2) {
-            ret += '<li><a href="#' + link.text + '">' + link.text + '</a>';
+            ret += '<li><a href="#' + encodeURI(link.text) + '">' + link.text + '</a>';
         }
     });
     ret += '</ul></li>';
