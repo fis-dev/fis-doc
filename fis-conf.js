@@ -66,7 +66,16 @@ var gLinks = {};
 var gNavRef = [];
 fis.config.set('roadmap.ext.md', 'html');
 
-fis.config.set('modules.parser.md', [function(content, file, conf) {
+fis.config.set('modules.parser.md', [function (content, file, conf) {
+    var pangunode = require('pangunode');
+    var ret = pangunode(content);
+
+    if (ret && ret.length > 0) {
+        return ret;
+    }
+
+    return ret;
+}, function(content, file, conf) {
         var include_reg = /<!--include\[([^\]]+)\]-->|<!--(?!\[)([\s\S]*?)(-->|$)/ig;
         var processed = [];
 
