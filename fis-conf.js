@@ -102,9 +102,9 @@ fis.config.set('modules.parser.md', [function (content, file, conf) {
 
         renderer.heading = function(text, level) {
             var link = {};
-            link.text = text;
+            link.text = encodeURI(text);
             link.level = level;
-            var escapedText = text;
+            var escapedText = link.text;
 
             links.push(link);
 
