@@ -64,6 +64,7 @@ fis.config.set('settings.parser.sass', {
 // 获取导航需要编译加`-c`或者`-u`，因为我偷懒了，没有处理缓存
 var gLinks = {};
 var gNavRef = [];
+var gLinkContent = '';
 fis.config.set('roadmap.ext.md', 'html');
 
 fis.config.set('modules.parser.md', [function (content, file, conf) {
@@ -140,6 +141,7 @@ fis.config.set('modules.parser.md', [function (content, file, conf) {
             if (title) {
                 out += ' title="' + title + '"';
             }
+
             out += '>' + text + '</a>';
             return out;
         };
@@ -164,6 +166,7 @@ fis.config.set('modules.parser.md', [function (content, file, conf) {
         gLinks[file.realpath] = links;
 
         if (file.isNav) {
+            gLinkContent = content;
             return navs.map(function(path) {
                 return '<div class="bs-docs-section"><!--inline[' + path + '.md]--></div>';
             }).join('\n');
@@ -200,8 +203,8 @@ fis.config.set('modules.postpackager', [function(ret, settings, conf, opt) {
                     useLinks = useLinks.concat(links);
                 }
             });
-            console.log(useLinks);
-            file.setContent(file.getContent().replace('<document_links>', getLinksHtml(useLinks)));
+            console.log('test');
+            file.setContent(file.getContent().replace('<document_links>', gLinkContent));//getLinksHtml(useLinks)));
             gLinks = []; //reset
         }
         if (file.isHtmlLike) {

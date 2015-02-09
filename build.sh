@@ -24,6 +24,9 @@ isDev=
 
 if [ "$2" = "dev" ]; then
     isDev="dev"
+    FRAMEWORKS=(
+        fis-plus
+    ) 
 else
     export PATH=$ROOT/node_modules/.bin:$PATH
     export NODE_PATH=$ROOT/node_modules
