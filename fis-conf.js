@@ -65,18 +65,19 @@ fis.config.set('settings.parser.sass', {
 var gLinks = {};
 var gNavRef = [];
 var gLinkContent = '';
+
 fis.config.set('roadmap.ext.md', 'html');
 
-fis.config.set('modules.parser.md', [function (content, file, conf) {
-    var pangunode = require('pangunode');
-    var ret = pangunode(content);
+fis.config.set('modules.parser.md', [function(content, file, conf) {
+        var pangunode = require('pangunode');
+        var ret = pangunode(content);
 
-    if (ret && ret.length > 0) {
+        if (ret && ret.length > 0) {
+            return ret;
+        }
+
         return ret;
-    }
-
-    return ret;
-}, function(content, file, conf) {
+    }, function(content, file, conf) {
         var include_reg = /<!--include\[([^\]]+)\]-->|<!--(?!\[)([\s\S]*?)(-->|$)/ig;
         var processed = [];
 
@@ -116,7 +117,7 @@ fis.config.set('modules.parser.md', [function (content, file, conf) {
                 escapedText +
                 '" class="anchor" href="#' +
                 escapedText +
-                '"><span class="doc-link"></span></a>' +
+                '"><span class="octicon octicon-link"></span></a>' +
                 text + '</h' + level + '>';
         };
 
@@ -129,7 +130,7 @@ fis.config.set('modules.parser.md', [function (content, file, conf) {
                     gNavRef.push(refFile.toString());
                     navs.push(info.pathname);
                 }
-                href='#' + encodeURI(text);
+                href = '#' + encodeURI(text);
             }
 
             var out = '<a href="' + href + '"';
@@ -195,31 +196,31 @@ function getLinksHtml(links) {
 }
 
 fis.config.set('modules.postpackager', [function(ret, settings, conf, opt) {
-    fis.util.map(ret.src, function(subpath, file) {
-        if (file.isDocumentPage) {
-            var useLinks = [];
-            fis.util.map(gLinks, function(realpath, links) {
-                if (gNavRef.indexOf(realpath) != -1) {
-                    useLinks = useLinks.concat(links);
-                }
-            });
-            console.log(gLinkContent);
-            file.setContent(file.getContent().replace('<document_links>', gLinkContent));//getLinksHtml(useLinks)));
-            gLinks = []; //reset
-        }
-        if (file.isHtmlLike) {
-            var macro = fis.config.get('macro');
-            var content = file.getContent();
-            fis.util.map(macro, function(key, value) {
-                content = content.replace(new RegExp('<#' + key + '#>', 'g'), function(all) {
-                    return value;
+        fis.util.map(ret.src, function(subpath, file) {
+            if (file.isDocumentPage) {
+                var useLinks = [];
+                fis.util.map(gLinks, function(realpath, links) {
+                    if (gNavRef.indexOf(realpath) != -1) {
+                        useLinks = useLinks.concat(links);
+                    }
                 });
-            });
-            file.setContent(content);
-        }
-    });
-}, 
-'simple' //pack
+                console.log(gLinkContent);
+                file.setContent(file.getContent().replace('<document_links>', gLinkContent)); //getLinksHtml(useLinks)));
+                gLinks = []; //reset
+            }
+            if (file.isHtmlLike) {
+                var macro = fis.config.get('macro');
+                var content = file.getContent();
+                fis.util.map(macro, function(key, value) {
+                    content = content.replace(new RegExp('<#' + key + '#>', 'g'), function(all) {
+                        return value;
+                    });
+                });
+                file.setContent(content);
+            }
+        });
+    },
+    'simple' //pack
 ]);
 
 fis.config.set('settings.postpackager.simple.autoCombine', true);
