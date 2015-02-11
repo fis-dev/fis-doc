@@ -69,15 +69,6 @@ var gLinkContent = '';
 fis.config.set('roadmap.ext.md', 'html');
 
 fis.config.set('modules.parser.md', [function(content, file, conf) {
-        var pangunode = require('pangunode');
-        var ret = pangunode(content);
-
-        if (ret && ret.length > 0) {
-            return ret;
-        }
-
-        return ret;
-    }, function(content, file, conf) {
         var include_reg = /<!--include\[([^\]]+)\]-->|<!--(?!\[)([\s\S]*?)(-->|$)/ig;
         var processed = [];
 
@@ -121,6 +112,10 @@ fis.config.set('modules.parser.md', [function(content, file, conf) {
                 text + '</h' + level + '>';
         };
 
+        renderer.paragraph = function(text) {
+            return '<p>' + (require('pangunode'))(text) + '</p>\n';
+        };
+
         renderer.link = function(href, title, text) {
             if (file.isNav) {
                 var info = url.parse(href);
@@ -136,7 +131,7 @@ fis.config.set('modules.parser.md', [function(content, file, conf) {
             var out = '<a href="' + href + '"';
 
             if (href.indexOf('#') != -1 && href.indexOf('http') != 0) {
-                out = '<a href="' + href.substr(href.indexOf('#')) + '"';
+                out = '<a href="' + encodeURI(href.substr(href.indexOf('#'))) + '"';
             }
 
             if (title) {
