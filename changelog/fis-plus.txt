@@ -39,3 +39,4 @@ WIKI test-online.md https://github.com/fex-team/fis-plus/wiki/test-online 142364
 # WIKI test-online.md https://github.com/fex-team/fis-plus/wiki/test-online 1423647919494
 WIKI Home.md https://github.com/fex-team/fis-plus/wiki/Home 1426671724830
 WIKI dev-directory-structure.md https://github.com/fex-team/fis-plus/wiki/dev-directory-structure 1429408214720
+WIKI test.md https://github.com/fex-team/fis-plus/wiki/test 1430199482277
