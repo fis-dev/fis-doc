@@ -43,3 +43,4 @@ WIKI test.md https://github.com/fex-team/fis-plus/wiki/test 1430199482277
 WIKI test.md https://github.com/fex-team/fis-plus/wiki/test 1430199840512
 WIKI test-rewrite.md https://github.com/fex-team/fis-plus/wiki/test-rewrite 1430200169151
 WIKI test-rewrite.md https://github.com/fex-team/fis-plus/wiki/test-rewrite 1430200188217
+WIKI test.md https://github.com/fex-team/fis-plus/wiki/test 1430200805046
