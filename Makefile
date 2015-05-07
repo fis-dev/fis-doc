@@ -1,4 +1,6 @@
 debug:
 	sh ./build.sh preview dev
-all:
+release:
 	sh ./build.sh
+
+.PHONY: debug release
