@@ -95,6 +95,7 @@ fis.config.set('modules.parser.md', [function(content, file, conf) {
         var links = [];
 
         renderer.heading = function(text, level) {
+            text = (require('pangunode'))(text);
             var link = {};
             link.text = text;
             link.level = level;
