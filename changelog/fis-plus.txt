@@ -50,3 +50,4 @@ WIKI dev-directory-structure.md https://github.com/fex-team/fis-plus/wiki/dev-di
 WIKI Home.md https://github.com/fex-team/fis-plus/wiki/Home 1433290363891
 WIKI dev-command.md https://github.com/fex-team/fis-plus/wiki/dev-command 1433295913630
 WIKI 快速入门.md https://github.com/fex-team/fis-plus/wiki/%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8 1433295913631
+WIKI 快速入门.md https://github.com/fex-team/fis-plus/wiki/%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8 1433296649879
