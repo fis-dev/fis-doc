@@ -34,7 +34,8 @@ fis.config.set('roadmap.path', [{
     reg: '**/_Sidebar.md',
     isNav: true
 }, {
-    reg: '**.md'
+    reg: '**.md',
+    useCache: false
 }, {
     reg: '/pages/${framework}/document.html',
     release: '/document.html',
@@ -108,8 +109,8 @@ fis.config.set('modules.parser.md', [function(content, file, conf) {
                 escapedText +
                 '" class="anchor" href="#' +
                 escapedText +
-                '"><span class="octicon octicon-link"></span></a>' +
-                text + '</h' + level + '>';
+                '">'+ text + '</a>' +
+                '</h' + level + '>';
         };
 
         renderer.paragraph = function(text) {
@@ -117,6 +118,7 @@ fis.config.set('modules.parser.md', [function(content, file, conf) {
         };
 
         renderer.link = function(href, title, text) {
+            text = (require('pangunode'))(text);
             if (file.isNav) {
                 var info = url.parse(href);
                 if (!~navs.indexOf(info.pathname)) {
