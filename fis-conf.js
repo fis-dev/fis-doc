@@ -107,7 +107,7 @@ fis.config.set('modules.parser.md', [function(content, file, conf) {
                 (level == 3 ? '" id="' + text : '') +
                 '"><a name="' +
                 escapedText +
-                '" class="anchor" href="#' +
+                '" href="#' +
                 escapedText +
                 '">'+ text + '</a>' +
                 '</h' + level + '>';
