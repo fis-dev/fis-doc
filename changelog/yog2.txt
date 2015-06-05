@@ -44,3 +44,4 @@ WIKI 目录结构.md https://github.com/fex-team/yog2/wiki/%E7%9B%AE%E5%BD%95%E7
 WIKI 资源依赖.md https://github.com/fex-team/yog2/wiki/%E8%B5%84%E6%BA%90%E4%BE%9D%E8%B5%96 1433478835032
 WIKI 路由.md https://github.com/fex-team/yog2/wiki/%E8%B7%AF%E7%94%B1 1433478835032
 WIKI Home.md https://github.com/fex-team/yog2/wiki/Home 1433479042279
+WIKI MVC.md https://github.com/fex-team/yog2/wiki/MVC 1433490986221
