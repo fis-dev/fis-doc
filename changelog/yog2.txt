@@ -18,3 +18,4 @@ WIKI 资源依赖.md https://github.com/fex-team/yog2/wiki/%E8%B5%84%E6%BA%90%E4
 WIKI 路由.md https://github.com/fex-team/yog2/wiki/%E8%B7%AF%E7%94%B1 1433477712465
 WIKI Home.md https://github.com/fex-team/yog2/wiki/Home 1433477712465
 WIKI _Sidebar.md https://github.com/fex-team/yog2/wiki/_Sidebar 1433477712465
+WIKI 目录结构.md https://github.com/fex-team/yog2/wiki/%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84 1433477811700
