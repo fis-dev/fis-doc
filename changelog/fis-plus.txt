@@ -54,3 +54,4 @@ WIKI 快速入门.md https://github.com/fex-team/fis-plus/wiki/%E5%BF%AB%E9%80%9
 WIKI Home.md https://github.com/fex-team/fis-plus/wiki/Home 1433297436849
 WIKI Home.md https://github.com/fex-team/fis-plus/wiki/Home 1433322185829
 WIKI dev-static.md https://github.com/fex-team/fis-plus/wiki/dev-static 1434547133264
+WIKI dev-static.md https://github.com/fex-team/fis-plus/wiki/dev-static 1434548281821
