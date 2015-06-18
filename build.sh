@@ -4,7 +4,6 @@ ROOT=$(pwd)
 FIS_CONFIG_TEMPLATE="$ROOT/fis-conf.js"
 FRAMEWORKS=(
     fis-plus
-    yog2
 )
 
 if [ "$1" = "" ];then
